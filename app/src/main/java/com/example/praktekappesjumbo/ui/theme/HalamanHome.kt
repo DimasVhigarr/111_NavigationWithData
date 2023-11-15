@@ -20,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,58 +30,59 @@ import com.example.praktekappesjumbo.R
 
 @Composable
 fun HalamanHome(
-    onNextButtonClicked: () -> Unit)
-{
+    onNextButtonClicked: () -> Unit
+) {
     val image = painterResource(id = R.drawable.img_esjumbo)
-    Column(modifier = Modifier,
-        verticalArrangement = Arrangement.SpaceBetween) {
+    Column(
+        modifier = Modifier,
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
         OutlinedCard(
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface,
+                containerColor = MaterialTheme.colorScheme.surface
             ),
             border = BorderStroke(1.dp, Color.Black),
             modifier = Modifier
                 .fillMaxWidth(0.95f)
                 .padding(vertical = 50.dp)
                 .align(Alignment.CenterHorizontally)
-        ){
-            Column(horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-            ){
-                Image(
-                    painter = image,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop
-                )
+            ) {
+                Image(painter = image, contentDescription = " ", contentScale = ContentScale.Crop)
                 Text(
                     text = "Es Jumbo",
-                    color = Color.Gray,
+                    color = Color.DarkGray,
+                    fontFamily = FontFamily.SansSerif,
                     fontSize = 35.sp,
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
                 Text(
                     text = "UMY",
-                    color = Color.Gray,
+                    color = Color.DarkGray,
+                    fontFamily = FontFamily.Monospace,
                     fontStyle = FontStyle.Italic,
                     fontSize = 60.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
-            Row(modifier = Modifier
+        }
+        Row(
+            modifier = Modifier
                 .fillMaxWidth()
                 .padding(dimensionResource(R.dimen.padding_medium))
                 .weight(1f, false),
-                horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-                verticalAlignment = Alignment.Bottom
-            ){
-                Button(
-                    modifier = Modifier.weight(1f),
-                    onClick = onNextButtonClicked
-                ) {
-                    Text(stringResource(R.string.next))
-                }
+            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+            verticalAlignment = Alignment.Bottom
+        ) {
+            Button(
+                modifier = Modifier.weight(1f),
+                onClick = onNextButtonClicked
+            ) {
+                Text(stringResource(R.string.next))
             }
         }
     }
@@ -88,8 +90,9 @@ fun HalamanHome(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewHalamanHome(){
-    PraktekAppEsJumboTheme{
-        HalamanHome(onNextButtonClicked = {})
+fun HalamanHomePreview() {
+    PraktekAppEsJumboTheme {
+        HalamanHome {
+        }
     }
 }
