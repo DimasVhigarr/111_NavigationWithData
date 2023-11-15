@@ -110,7 +110,7 @@ fun HalamanSatu(
 }
 @Preview(showBackground = true)
 @Composable
-fun HalamanHasilPreview() {
+fun HalamanSatuPreview() {
     PraktekAppEsJumboTheme {
         HalamanSatu(onSubmitButtonClicked = {}) {
         }
