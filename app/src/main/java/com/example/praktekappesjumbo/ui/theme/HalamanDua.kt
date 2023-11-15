@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.praktekappesjumbo.R
 import com.example.praktekappesjumbo.data.OrderUIState
 import com.example.praktekappesjumbo.ui.theme.komponen.FormatLabelHarga
@@ -79,5 +80,12 @@ fun HalamanDua(
                 }
             }
         }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun HalamanDuaPreview() {
+    PraktekAppEsJumboTheme {
+        HalamanDua(orderUIState = OrderUIState(), onCancelButtonClicked = { /*TODO*/ })
     }
 }
